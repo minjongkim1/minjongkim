@@ -1,0 +1,43 @@
+/* 기본 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 전체적인 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* 헤더 스타일 */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* 주요 콘텐츠 영역 스타일 */
+main {
+    padding: 20px;
+}
+
+/* 섹션 스타일 */
+section {
+    margin-bottom: 20px;
+}
+
+/* 푸터 스타일 */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
