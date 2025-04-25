@@ -1,12 +1,12 @@
 @font-face {
-  font-family: 'KM Strasse';
-  src: url('KM-Strasse.woff2') format('woff2');
+  font-family: 'KMKonrad68';
+  src: url('KMKonrad68-Medium.woff2') format('woff2');
 }
 
 body {
   margin: 0;
   padding: 4rem 1rem;
-  font-family: 'KM Strasse', sans-serif;
+  font-family: 'KMKonrad68', sans-serif;
   background: #fff;
   color: #000070;
   line-height: 1.6;
