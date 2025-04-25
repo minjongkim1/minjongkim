@@ -1,104 +1,156 @@
-/* --- 이전 스타일 전체 백업본 --- */
-
 @font-face {
-  font-family: 'KM Konrad 68';
+  font-family: 'KM Konrad68';
   src: url('KMKonrad68-Medium.woff2') format('woff2');
   font-weight: normal;
   font-style: normal;
 }
 
-body {
+body, html {
   margin: 0;
   padding: 0;
-  background-color: #fff;
-  font-family: 'KM Konrad 68', sans-serif;
-  color: #000;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  font-family: 'KM Konrad68', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* 상단 기준으로 정렬 */
   overflow: hidden;
+  position: relative;
 }
 
+
 .background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .bg-image {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  transition: opacity 1s ease-in-out;
+  transition: opacity 1.5s ease;
 }
 
 .bg-image.active {
   opacity: 1;
-  z-index: 1;
 }
 
 .bio {
-  position: absolute;
-  top: 2%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: auto;
-  text-align: center;
-  font-size: 16px;
-  line-height: 1;
-  letter-spacing: 0.02em;
+  margin-top: 1%;
   z-index: 2;
+  text-align: center;
+  letter-spacing: 0.02em;
 }
 
 .bio h1 {
+  margin: 0;
   font-size: 16px;
-  margin: 0.2rem 0;
+  line-height: 0.8;
+  font-weight: normal;
 }
 
-.bio p, .bio a {
+.bio p {
+  margin: 0.5rem 0;
   font-size: 16px;
+  line-height: 0.8;
+}
+
+.bio a {
+  color: #000070;
+  font-size: 17px;
+  line-height: 1.0;
   text-decoration: none;
-  color: inherit;
+  transition: color 0.3s ease;
 }
 
 .bio a:hover {
   color: #A5A5A5;
+  transform: scale(1.05);
+  transition: all 0.3s ease;
 }
 
 .clock {
-  position: fixed;
+  position: absolute;
   bottom: 3%;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 13px;
+  font-size: 14px;
+  color: #000070;
+  font-family: 'KM Konrad68', sans-serif;
+  letter-spacing: 0.02em;
   z-index: 2;
 }
 
+/* 다크모드 기본 스타일 */
+body.dark-mode {
+  background: #111;
+  color: #eee;
+}
+
+.bio.dark-mode a {
+  color: #eee;
+}
+
+.bio.dark-mode a:hover {
+  color: #A5A5A5;
+}
+
 .toggle-button {
-  position: fixed;
+  position: absolute;
   top: 2%;
   right: 2%;
-  width: 28px;
-  height: 28px;
-  background-color: #000;
+  width: 20px;
+  height: 20px;
+  background: #000070;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
   z-index: 3;
 }
 
+.toggle-button:hover {
+  background: #5555ff;
+}
+
+body.dark-mode .toggle-button {
+  background: #eee;
+}
+
+body.dark-mode .toggle-button:hover {
+  background: #A5A5A5;
+}
+
+body.dark-mode .bg-image {
+  filter: invert(1);
+}
+
+body.dark-mode .clock {
+  color: #eee; /* 밝은 회색 */
+}
+
+/* 📱 모바일 대응 */
 @media screen and (max-width: 600px) {
   .bio {
-    margin-top: 5%;
+    margin-top: 4%;
     padding: 0 5%;
-    font-size: 13px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .bio h1 {
+    font-size: 15px;
+    margin: 0.4rem 0;
+  }
+
+  .bio p, .bio a {
+    font-size: 14px;
     line-height: 1.2;
-    letter-spacing: 0.02em;
-    width: 90%;
   }
 
   .clock {
@@ -107,9 +159,15 @@ body {
   }
 
   .toggle-button {
-    width: 26px;
-    height: 26px;
-    top: 2%;
-    right: 2%;
+    top: 3%;
+    right: 3%;
+    width: 36px;
+    height: 36px;
+  }
+
+  .bg-image {
+    object-fit: contain;
+    max-height: 100vh;
+    width: auto;
   }
 }
