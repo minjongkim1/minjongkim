@@ -136,50 +136,47 @@ body.dark-mode .clock {
 
 /* 📱 모바일 대응 */
 @media screen and (max-width: 600px) {
-  /* 1) 다크모드 완전 비활성화 */
-  body.dark-mode {
-    background: #fff !important;
-    color: #000 !important;
-  }
-  body.dark-mode .bg-image {
-    filter: none !important;
-  }
-  /* 링크도 원색으로 복원 */
-  .bio.dark-mode a,
-  .bio.dark-mode a:hover {
-    color: #000070 !important;
-  }
-  /* 토글 버튼 숨기기 */
+
+  /* 1) 토글 버튼 완전 숨기기 */
   .toggle-button {
     display: none !important;
   }
 
-  /* 2) 레이아웃 단순 중앙 정렬 */
-  /* body는 flex로 가운데 정렬 */
-  body {
-    justify-content: center !important;
-  }
-  /* bio 텍스트는 static 위치, 폭 90%, 자동 마진 */
-  .bio {
-    position: static !important;
-    transform: none !important;
-    width: 90%;
-    margin: 0 auto;
-    padding: 0;
-  }
-  /* clock도 static 아래쪽에 간격만 */
-  .clock {
-    position: static !important;
-    transform: none !important;
-    margin-top: 1rem;
-  }
-  /* 배경 이미지는 그대로 cover 유지 */
-  .bg-image {
-    object-fit: cover;
-    position: fixed;
+  /* 2) 배경은 full-cover 유지 */
+  .background {
+    position: fixed !important;
     top: 0;
     left: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 100vw !important;
+    height: 100vh !important;
+  }
+  .bg-image {
+    object-fit: cover !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
+    left: 0 !important;
+  }
+
+  /* 3) bio 텍스트를 화면 세로 중앙보다 살짝 위로, 가로 완전 가운데에 고정 */
+  .bio {
+    position: absolute !important;
+    top: 45% !important;           /* 화면의 45% 지점 */
+    left: 50% !important;          /* 가로 중앙 */
+    transform: translate(-50%, -50%) !important;
+    width: 90% !important;         /* 좌우 5% 여백 */
+    padding: 0 !important;
+    text-align: center !important;
+    z-index: 2 !important;
+  }
+
+  /* 4) 시계는 화면 맨 아래 중앙에 고정 */
+  .clock {
+    position: absolute !important;
+    bottom: 3% !important;         /* 바닥에서 3% 띄우기 */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    margin: 0 !important;
+    z-index: 2 !important;
   }
 }
