@@ -1,3 +1,5 @@
+let timerId;
+
 document.addEventListener('DOMContentLoaded', () => {
   const images = document.querySelectorAll('.bg-image');
   let current = 0;
@@ -12,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
         img.src = `image${index + 1}.svg`;
       }
     });
+
+    showImage(current);
   }
 
   function showImage(index) {
@@ -30,6 +34,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
   updateImagesForScreen();
   showImage(current);
-  window.addEventListener('resize', updateImagesForScreen);
-  setInterval(nextImage, 5000);
+
+  window.addEventListener('resize', () => {
+    updateImagesForScreen();
+  });
+
+  // 기존 타이머 있으면 지우고 새로 시작
+  if (timerId) {
+    clearInterval(timerId);
+  }
+  timerId = setInterval(nextImage, 5000);
+
+  window.timerId = timerId; // 디버깅용 (콘솔에서 확인)
 });
