@@ -136,38 +136,50 @@ body.dark-mode .clock {
 
 /* 📱 모바일 대응 */
 @media screen and (max-width: 600px) {
-  .bio {
-    margin-top: 4%;
-    padding: 0 5%;
-    font-size: 14px;
-    text-align: center;
+  /* 1) 다크모드 완전 비활성화 */
+  body.dark-mode {
+    background: #fff !important;
+    color: #000 !important;
   }
-
-  .bio h1 {
-    font-size: 15px;
-    margin: 0.4rem 0;
+  body.dark-mode .bg-image {
+    filter: none !important;
   }
-
-  .bio p, .bio a {
-    font-size: 14px;
-    line-height: 1.2;
+  /* 링크도 원색으로 복원 */
+  .bio.dark-mode a,
+  .bio.dark-mode a:hover {
+    color: #000070 !important;
   }
-
-  .clock {
-    font-size: 11px;
-    bottom: 2%;
-  }
-
+  /* 토글 버튼 숨기기 */
   .toggle-button {
-    top: 3%;
-    right: 3%;
-    width: 36px;
-    height: 36px;
+    display: none !important;
   }
 
+  /* 2) 레이아웃 단순 중앙 정렬 */
+  /* body는 flex로 가운데 정렬 */
+  body {
+    justify-content: center !important;
+  }
+  /* bio 텍스트는 static 위치, 폭 90%, 자동 마진 */
+  .bio {
+    position: static !important;
+    transform: none !important;
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+  /* clock도 static 아래쪽에 간격만 */
+  .clock {
+    position: static !important;
+    transform: none !important;
+    margin-top: 1rem;
+  }
+  /* 배경 이미지는 그대로 cover 유지 */
   .bg-image {
-    object-fit: contain;
-    max-height: 100vh;
-    width: auto;
+    object-fit: cover;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
   }
 }
