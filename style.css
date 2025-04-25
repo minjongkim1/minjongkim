@@ -136,11 +136,38 @@ body.dark-mode .clock {
 
 /* 📱 모바일 대응 */
 @media screen and (max-width: 600px) {
-  .bio h1, .bio p, .bio a {
-    font-size: 15px; /* 모바일에서는 조금 더 작게 */
+  .bio {
+    margin-top: 4%;
+    padding: 0 5%;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .bio h1 {
+    font-size: 15px;
+    margin: 0.4rem 0;
+  }
+
+  .bio p, .bio a {
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .clock {
-    font-size: 12px; /* 모바일에서는 시계도 살짝 줄이기 */
+    font-size: 11px;
+    bottom: 2%;
+  }
+
+  .toggle-button {
+    top: 3%;
+    right: 3%;
+    width: 36px;
+    height: 36px;
+  }
+
+  .bg-image {
+    object-fit: contain;
+    max-height: 100vh;
+    width: auto;
   }
 }
