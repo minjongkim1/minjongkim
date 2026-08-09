@@ -13,15 +13,21 @@ html,
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
 }
 
 body {
   font-family: "Quirk85", sans-serif;
-  font-size: 18px;
-  line-height: 1.15;
-  color: #000;
-  background: #fff;
+  font-size: 28px;
+  line-height: 1.05;
+  font-weight: 700;
+
+  color: #ffffff;
+  background: #011455;
+
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 main {
@@ -30,13 +36,25 @@ main {
 
 p {
   margin: 0;
+  padding: 0;
 }
 
 a {
-  color: inherit;
+  color: #ffffff;
   text-decoration: none;
 }
 
 a:hover {
   opacity: 0.5;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 22px;
+  }
+
+  main {
+    padding: 12px;
+  }
 }
