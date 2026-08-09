@@ -16,13 +16,11 @@ body {
 }
 
 body {
-  background: #fff;
-  color: #000;
-
   font-family: "KM Konrad68", Arial, sans-serif;
   font-size: 18px;
-  line-height: 1.1;
-
+  line-height: 1.15;
+  color: #000;
+  background: #fff;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -30,21 +28,8 @@ main {
   padding: 16px;
 }
 
-h1,
 p {
   margin: 0;
-  padding: 0;
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: 500;
-}
-
-h1 {
-  margin-bottom: 18px;
-}
-
-p + p {
-  margin-top: 18px;
 }
 
 a {
@@ -53,5 +38,5 @@ a {
 }
 
 a:hover {
-  opacity: 0.45;
+  opacity: 0.5;
 }
