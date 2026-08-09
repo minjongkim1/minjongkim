@@ -1,7 +1,7 @@
 @font-face {
-  font-family: "KM Konrad68";
-  src: url("KMKonrad68-Medium.woff2") format("woff2");
-  font-weight: 500;
+  font-family: "Quirk85";
+  src: url("Quirk85Beta-Bold.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
 }
 
@@ -16,7 +16,7 @@ body {
 }
 
 body {
-  font-family: "KM Konrad68", Arial, sans-serif;
+  font-family: "Quirk85", sans-serif;
   font-size: 18px;
   line-height: 1.15;
   color: #000;
