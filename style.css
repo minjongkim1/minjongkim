@@ -5,9 +5,6 @@
   font-style: normal;
 }
 
-
-/* Reset */
-
 * {
   box-sizing: border-box;
 }
@@ -20,36 +17,27 @@ body {
   min-height: 100%;
 }
 
-
-/* General */
-
 body {
-  background: #0d065d;
-  color: #727db8;
+  background: #081559;
+  color: #86a2d6;
 
   font-family: "Quirk85", sans-serif;
   font-size: 22px;
-  line-height: 1.05;
+  line-height: 1.2;
   font-weight: 500;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-/* Grid */
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 
   width: 100%;
   padding: 16px;
   gap: 16px;
 }
-
-
-/* Typography */
 
 .column {
   min-width: 0;
@@ -58,6 +46,10 @@ body {
 p {
   margin: 0;
   padding: 0;
+}
+
+.spacer {
+  margin-top: 1.2em;
 }
 
 a {
@@ -69,44 +61,23 @@ a:hover {
   opacity: 0.5;
 }
 
+.clock {
+  white-space: nowrap;
+}
 
-/* Mobile */
+
+/* MOBILE */
 
 @media screen and (max-width: 700px) {
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 22px;
+    gap: 1.2em;
     padding: 12px;
   }
 
+  .clock {
+    white-space: nowrap;
+  }
+
 }
-
-그리고 시계를 이제 실제로 작동시키려면 새로 clock.js 파일 하나 만들어서 이것 넣으면 돼.
-
-clock.js
-function updateClocks() {
-
-  const now = new Date();
-
-  const zurichTime = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/Zurich",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).format(now);
-
-  const seoulTime = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Seoul",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
-  }).format(now);
-
-  document.getElementById("zurich-time").textContent = zurichTime;
-  document.getElementById("seoul-time").textContent = seoulTime;
-}
-
-updateClocks();
-
-setInterval(updateClocks, 1000);
