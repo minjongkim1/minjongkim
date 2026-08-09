@@ -1,182 +1,41 @@
-@font-face {
-  font-family: 'KM Konrad68';
-  src: url('KMKonrad68-Medium.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+* {
+  box-sizing: border-box;
 }
 
-body, html {
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;
-  height: 100%;
+}
+
+body {
   background: #fff;
-  font-family: 'KM Konrad68', sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start; /* 상단 기준으로 정렬 */
-  overflow: hidden;
-  position: relative;
 }
 
-
-.background {
-  position: absolute;
+.projects {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.bg-image {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 1.5s ease;
-}
-
-.bg-image.active {
-  opacity: 1;
-}
-
-.bio {
-  margin-top: 1%;
-  z-index: 2;
-  text-align: center;
-  letter-spacing: 0.02em;
-}
-
-.bio h1 {
   margin: 0;
-  font-size: 16px;
-  line-height: 0.8;
-  font-weight: normal;
+  padding: 0;
 }
 
-.bio p {
-  margin: 0.5rem 0;
-  font-size: 16px;
-  line-height: 0.8;
-}
-
-.bio a {
-  color: #000070;
-  font-size: 17px;
-  line-height: 1.0;
+.project {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.bio a:hover {
-  color: #A5A5A5;
-  transform: scale(1.05);
-  transition: all 0.3s ease;
-}
-
-.clock {
-  position: absolute;
-  bottom: 3%;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 14px;
-  color: #000070;
-  font-family: 'KM Konrad68', sans-serif;
-  letter-spacing: 0.02em;
-  z-index: 2;
-}
-
-/* 다크모드 기본 스타일 */
-body.dark-mode {
-  background: #111;
-  color: #eee;
-}
-
-.bio.dark-mode a {
-  color: #eee;
-}
-
-.bio.dark-mode a:hover {
-  color: #A5A5A5;
-}
-
-.toggle-button {
-  position: absolute;
-  top: 2%;
-  right: 2%;
-  width: 20px;
-  height: 20px;
-  background: #000070;
-  border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
-  z-index: 3;
 }
 
-.toggle-button:hover {
-  background: #5555ff;
+.project picture,
+.project img {
+  display: block;
+  width: 100%;
 }
 
-body.dark-mode .toggle-button {
-  background: #eee;
-}
-
-body.dark-mode .toggle-button:hover {
-  background: #A5A5A5;
-}
-
-body.dark-mode .bg-image {
-  filter: invert(1);
-}
-
-body.dark-mode .clock {
-  color: #eee; /* 밝은 회색 */
-}
-
-/* 📱 모바일 대응 */
-@media screen and (max-width: 600px) {
-
-  /* 1) 토글 버튼 완전 숨기기 */
-  .toggle-button {
-    display: none !important;
-  }
-
-  /* 2) 배경은 full-cover 유지 */
-  .background {
-    position: fixed !important;
-    top: 0;
-    left: 0;
-    width: 100vw !important;
-    height: 100vh !important;
-  }
-  .bg-image {
-    object-fit: cover !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    top: 0 !important;
-    left: 0 !important;
-  }
-
-  /* 3) bio 텍스트를 화면 세로 중앙보다 살짝 위로, 가로 완전 가운데에 고정 */
-  .bio {
-    position: absolute !important;
-    top: 45% !important;           /* 화면의 45% 지점 */
-    left: 50% !important;          /* 가로 중앙 */
-    transform: translate(-50%, -50%) !important;
-    width: 90% !important;         /* 좌우 5% 여백 */
-    padding: 0 !important;
-    text-align: center !important;
-    z-index: 2 !important;
-  }
-
-  /* 4) 시계는 화면 맨 아래 중앙에 고정 */
-  .clock {
-    position: absolute !important;
-    bottom: 3% !important;         /* 바닥에서 3% 띄우기 */
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    margin: 0 !important;
-    z-index: 2 !important;
-  }
+.project img {
+  height: auto;
+  margin: 0;
+  padding: 0;
 }
