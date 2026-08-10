@@ -19,12 +19,12 @@ body {
 }
 
 body {
-  background: #081559;
-  color: #86a2d6;
+  background: ##ffffff;
+  color: #000000;
 
   font-family: "Quirk85", Verdana, sans-serif;
-  font-size: 22px;
-  line-height: 1.2;
+  font-size: 20px;
+  line-height: 1.16;
   font-weight: 500;
 
   -webkit-font-smoothing: antialiased;
