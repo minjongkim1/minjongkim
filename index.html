@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="description" content="Minjong Kim — Type & Graphic Design">
   <title>Minjong Kim</title>
 
   <link rel="stylesheet" href="style.css">
@@ -25,19 +23,20 @@
 
     <!-- COLUMN 2 -->
     <section class="column">
-      <p>E-mail</p>
       <p>
+        E-mail<br>
         <a href="mailto:minjongkim.production@gmail.com">
           minjongkim.production@gmail.com
         </a>
       </p>
 
-      <p>Instagram</p>
       <p>
+        Instagram<br>
         <a
           href="https://www.instagram.com/minjongkirn"
           target="_blank"
-          rel="noopener noreferrer">
+          rel="noopener noreferrer"
+        >
           @minjongkirn
         </a>
       </p>
@@ -46,7 +45,7 @@
 
     <!-- COLUMN 3 -->
     <section class="column">
-      <p>Office/Post — Lineto GmbH</p>
+      <p>Office/Post – Lineto GmbH</p>
       <p>Lutherstrasse 32, CH-8004 Zürich</p>
     </section>
 
@@ -61,8 +60,35 @@
 
   </main>
 
-  <script src="clock.js"></script>
+
+  <script>
+    function updateClock() {
+
+      const now = new Date();
+
+      const zurich = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Zurich',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
+
+      const seoul = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
+
+      document.getElementById('zurich-time').textContent = zurich;
+      document.getElementById('seoul-time').textContent = seoul;
+    }
+
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
 </body>
-
 </html>
