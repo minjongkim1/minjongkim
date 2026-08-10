@@ -1,7 +1,7 @@
 @font-face {
   font-family: "Quirk85";
-  src: url("./Quirk85Beta-Meidum.woff2") format("woff2");
-  font-weight: 500;
+  src: url("Quirk85Beta-Meidum.woff2") format("woff2");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -19,33 +19,37 @@ body {
 }
 
 body {
+  margin: 0;
   background: #ffffff;
   color: #000000;
 
-  font-family: "Quirk85", Verdana, sans-serif;
+  font-family: "Quirk85";
   font-size: 18px;
+  font-weight: normal;
   line-height: 1.16;
-  font-weight: 500;
 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 4-COLUMN GRID */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
   width: 100%;
-
   padding: 18px 20px;
-  column-gap: 20px;
 
+  column-gap: 20px;
   align-items: start;
 }
 
 .column {
   min-width: 0;
 }
+
+/* TYPOGRAPHY */
 
 p {
   margin: 0;
@@ -61,11 +65,16 @@ a:hover {
   opacity: 0.6;
 }
 
+/* CLOCK */
+
 .clock {
   white-space: nowrap;
 }
 
+/* TABLET */
+
 @media screen and (max-width: 900px) {
+
   body {
     font-size: 16px;
   }
@@ -76,7 +85,10 @@ a:hover {
   }
 }
 
+/* MOBILE */
+
 @media screen and (max-width: 600px) {
+
   body {
     font-size: 11px;
   }
