@@ -1,94 +1,171 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* --------------------------------
+   FONT
+-------------------------------- */
 
-  <title>Minjong Kim</title>
-
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <main class="grid">
-
-    <!-- COLUMN 1 -->
-    <section class="column">
-      <p>M I N J O N G K I M</p>
-      <p>TYPE &amp; GRAPHIC DESIGN</p>
-      <p>Zürich / Seoul</p>
-    </section>
+@font-face {
+  font-family: "Quirk85";
+  src: url("Quirk85Beta-Medium.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 
-    <!-- COLUMN 2 -->
-    <section class="column">
-      <p>
-        E-mail<br>
-        <a href="mailto:minjongkim.production@gmail.com">
-          minjongkim.production@gmail.com
-        </a>
-      </p>
+/* --------------------------------
+   RESET
+-------------------------------- */
 
-      <p>
-        Instagram<br>
-        <a
-          href="https://www.instagram.com/minjongkirn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          @minjongkirn
-        </a>
-      </p>
-    </section>
+* {
+  box-sizing: border-box;
+}
 
+html,
+body {
+  margin: 0;
+  padding: 0;
 
-    <!-- COLUMN 3 -->
-    <section class="column">
-      <p>Office/Post – Lineto GmbH</p>
-      <p>Lutherstrasse 32, CH-8004 Zürich</p>
-    </section>
+  width: 100%;
+  min-height: 100%;
+
+  background: #081559;
+  color: #86a2d6;
+}
 
 
-    <!-- COLUMN 4 -->
-    <section class="column clock">
-      <p>
-        CET <span id="zurich-time">--:--:--</span> /
-        KST <span id="seoul-time">--:--:--</span>
-      </p>
-    </section>
+/* --------------------------------
+   TYPOGRAPHY
+-------------------------------- */
 
-  </main>
+body {
+  font-family: "Quirk85", sans-serif;
+
+  font-size: 22px;
+  line-height: 1.2;
+
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+}
 
 
-  <script>
-    function updateClock() {
+/* --------------------------------
+   GRID
+-------------------------------- */
 
-      const now = new Date();
+.grid {
+  display: grid;
 
-      const zurich = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Europe/Zurich',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      }).format(now);
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
 
-      const seoul = new Intl.DateTimeFormat('en-GB', {
-        timeZone: 'Asia/Seoul',
-        hour: '2-digit',
-        minute: '2-digit',
-        second: '2-digit',
-        hour12: false
-      }).format(now);
+  width: 100%;
 
-      document.getElementById('zurich-time').textContent = zurich;
-      document.getElementById('seoul-time').textContent = seoul;
-    }
+  padding:
+    clamp(18px, 1.7vw, 32px);
 
-    updateClock();
-    setInterval(updateClock, 1000);
-  </script>
+  column-gap:
+    clamp(12px, 1.5vw, 28px);
 
-</body>
-</html>
+  align-items: start;
+}
+
+
+/* --------------------------------
+   COLUMNS
+-------------------------------- */
+
+.column {
+  min-width: 0;
+}
+
+.column p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/*
+   Space only between actual
+   information groups.
+*/
+
+.column p + p {
+  margin-top: 0;
+}
+
+
+/* Column 2:
+   slight separation between
+   E-mail and Instagram
+*/
+
+.column:nth-child(2) p + p {
+  margin-top: 0;
+}
+
+
+/* --------------------------------
+   LINKS
+-------------------------------- */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  opacity: 0.65;
+}
+
+
+/* --------------------------------
+   CLOCK
+-------------------------------- */
+
+.clock {
+  white-space: nowrap;
+}
+
+
+/* --------------------------------
+   RESPONSIVE
+-------------------------------- */
+
+/*
+   Keep the four-column structure.
+
+   The columns, margins, gaps and
+   type size progressively shrink
+   instead of stacking.
+*/
+
+@media screen and (max-width: 1100px) {
+
+  body {
+    font-size: clamp(16px, 2vw, 22px);
+  }
+
+  .grid {
+    column-gap: clamp(8px, 1.3vw, 20px);
+  }
+
+}
+
+
+@media screen and (max-width: 700px) {
+
+  body {
+    font-size: clamp(11px, 2.7vw, 16px);
+  }
+
+  .grid {
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+
+    padding:
+      clamp(10px, 2.5vw, 18px);
+
+    column-gap:
+      clamp(5px, 1.5vw, 10px);
+  }
+
+}
