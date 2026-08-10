@@ -1,18 +1,21 @@
 function updateClocks() {
   const now = new Date();
 
-  const zurichTime = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Europe/Zurich",
+  const options = {
     hour: "2-digit",
     minute: "2-digit",
+    second: "2-digit",
     hour12: false
+  };
+
+  const zurichTime = new Intl.DateTimeFormat("en-GB", {
+    ...options,
+    timeZone: "Europe/Zurich"
   }).format(now);
 
   const seoulTime = new Intl.DateTimeFormat("en-GB", {
-    timeZone: "Asia/Seoul",
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: false
+    ...options,
+    timeZone: "Asia/Seoul"
   }).format(now);
 
   document.getElementById("zurich-time").textContent = zurichTime;
@@ -20,5 +23,4 @@ function updateClocks() {
 }
 
 updateClocks();
-
 setInterval(updateClocks, 1000);
