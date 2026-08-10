@@ -1,100 +1,94 @@
-@font-face {
-  font-family: "Quirk85";
-  src: url("Quirk85Beta-Meidum.woff2") format("woff2");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Minjong Kim</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="grid">
+
+    <!-- COLUMN 1 -->
+    <section class="column">
+      <p>M I N J O N G K I M</p>
+      <p>TYPE &amp; GRAPHIC DESIGN</p>
+      <p>Zürich / Seoul</p>
+    </section>
 
 
-/* RESET */
+    <!-- COLUMN 2 -->
+    <section class="column">
+      <p>
+        E-mail<br>
+        <a href="mailto:minjongkim.production@gmail.com">
+          minjongkim.production@gmail.com
+        </a>
+      </p>
 
-* {
-  box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  min-height: 100%;
-}
-
-
-/* GENERAL */
-
-body {
-  background: #061146;
-  color: #86a2d6;
-
-  font-family: "Quirk85", sans-serif;
-  font-size: 24px;
-  line-height: 1.16;
-  font-weight: 500;
-
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+      <p>
+        Instagram<br>
+        <a
+          href="https://www.instagram.com/minjongkirn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          @minjongkirn
+        </a>
+      </p>
+    </section>
 
 
-/* FOUR-COLUMN GRID */
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-
-  width: 100%;
-
-  padding: 10px;
-  gap: 16px;
-}
-
-.column {
-  min-width: 0;
-}
+    <!-- COLUMN 3 -->
+    <section class="column">
+      <p>Office/Post – Lineto GmbH</p>
+      <p>Lutherstrasse 32, CH-8004 Zürich</p>
+    </section>
 
 
-/* TYPOGRAPHY */
+    <!-- COLUMN 4 -->
+    <section class="column clock">
+      <p>
+        CET <span id="zurich-time">--:--:--</span> /
+        KST <span id="seoul-time">--:--:--</span>
+      </p>
+    </section>
 
-p {
-  margin: 0;
-  padding: 0;
-}
-
-
-/* LINKS */
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:hover {
-  opacity: 0.5;
-}
+  </main>
 
 
-/* CLOCK */
+  <script>
+    function updateClock() {
 
-.clock {
-  white-space: nowrap;
-}
+      const now = new Date();
 
+      const zurich = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/Zurich',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
 
-/* MOBILE */
+      const seoul = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Asia/Seoul',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: false
+      }).format(now);
 
-@media screen and (max-width: 700px) {
+      document.getElementById('zurich-time').textContent = zurich;
+      document.getElementById('seoul-time').textContent = seoul;
+    }
 
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 1.2em;
+    updateClock();
+    setInterval(updateClock, 1000);
+  </script>
 
-    padding: 10px;
-  }
-
-  .clock {
-    white-space: nowrap;
-  }
-
-}
+</body>
+</html>
