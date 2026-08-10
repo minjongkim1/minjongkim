@@ -1,4 +1,3 @@
-@font-face {
   font-family: "Quirk85";
   src: url("./Quirk85Beta-Meidum.woff2") format("woff2");
   font-weight: 500;
@@ -19,7 +18,7 @@ body {
 }
 
 body {
-  background: ##ffffff;
+  background: #ffffff;
   color: #000000;
 
   font-family: "Quirk85", Verdana, sans-serif;
