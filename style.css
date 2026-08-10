@@ -3,7 +3,11 @@
   src: url("Quirk85Beta-Meidum.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
+
+
+/* RESET */
 
 * {
   box-sizing: border-box;
@@ -16,6 +20,9 @@ body {
   width: 100%;
   min-height: 100%;
 }
+
+
+/* GENERAL */
 
 body {
   background: #081559;
@@ -31,14 +38,15 @@ body {
 }
 
 
-/* 4 COLUMN GRID */
+/* FOUR-COLUMN GRID */
 
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
   width: 100%;
-  padding: 16px;
+
+  padding: 10px;
   gap: 16px;
 }
 
@@ -46,18 +54,16 @@ body {
   min-width: 0;
 }
 
+
+/* TYPOGRAPHY */
+
 p {
   margin: 0;
   padding: 0;
 }
 
 
-/* CONTACT */
-
-.contact-row {
-  display: grid;
-  grid-template-columns: 100px 1fr;
-}
+/* LINKS */
 
 a {
   color: inherit;
@@ -83,11 +89,12 @@ a:hover {
   .grid {
     grid-template-columns: 1fr;
     gap: 1.2em;
-    padding: 12px;
+
+    padding: 10px;
   }
 
-  .contact-row {
-    grid-template-columns: 90px 1fr;
+  .clock {
+    white-space: nowrap;
   }
 
 }
