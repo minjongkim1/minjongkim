@@ -30,6 +30,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+/* 4 COLUMN GRID */
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -48,8 +51,12 @@ p {
   padding: 0;
 }
 
-.spacer {
-  margin-top: 1.2em;
+
+/* CONTACT */
+
+.contact-row {
+  display: grid;
+  grid-template-columns: 100px 1fr;
 }
 
 a {
@@ -60,6 +67,9 @@ a {
 a:hover {
   opacity: 0.5;
 }
+
+
+/* CLOCK */
 
 .clock {
   white-space: nowrap;
@@ -76,8 +86,8 @@ a:hover {
     padding: 12px;
   }
 
-  .clock {
-    white-space: nowrap;
+  .contact-row {
+    grid-template-columns: 90px 1fr;
   }
 
 }
